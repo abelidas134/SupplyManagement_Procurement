@@ -1,119 +1,86 @@
-﻿using Microsoft.VisualBasic.FileIO;
-using System.ComponentModel;
+﻿using System;
+using System.Diagnostics;
+using System.Net;
+using System.Numerics;
+using System.Runtime.InteropServices;
+using System.Xml.Linq;
 
 namespace SupplyManagement_Procurement
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
-
+            char click;
             Console.WriteLine("PROCUREMENT");
+            Console.WriteLine("=======================================================");
+            Console.WriteLine("Proceeding to Supply Management Section...");
+            Console.WriteLine("=======================================================");
 
-            Console.WriteLine("\nProceeding to Supply Management Section (yes/no)...");
-            string Opt = Console.ReadLine();
+            Console.WriteLine("\nA — Inventory Status: ");//Dito parang for viewing lang sa user
+            Console.WriteLine("\nB — Suppliers: ");
+            Console.WriteLine("\nC — Purchase: ");
+            Console.WriteLine("\nD – Exit: ");
+            click = choice();
 
-            while (Opt == "yes")
+            switch (click)
             {
-
-                Console.WriteLine("\nITEMS AVAILABILITY (A):");
-                Console.WriteLine("PURCHASE (B):");
-                Console.WriteLine("SUPPLIERS (C):");
-
-                Console.Write("CLICK: ");
-                string click = Console.ReadLine();
-
-                if (click == "A")
-                {
-                    ItemsAvail();
-                    continue;
-                }
-                else if (click == "B")
-                {
-                    Purchase();
-                    continue;
-                }
-                else if (click == "C")
-                {
-                    Suppliers();
-                    continue;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please try again.");
+                case 'A':
+                    //call ang class/project about inventory status.
                     break;
-                }
+                case 'B':
+                    Console.WriteLine("============================");
+                    Console.WriteLine("\nSUPPLY MANAGEMENT OPTION:");
+                    crudFeatures();
+                    click = choice();
 
+                    if (click == 'A')
+                    {
+                        Console.WriteLine("============================");
+                        Console.WriteLine("\nCreating/Adding an Item: ");
+                        Console.WriteLine("============================");
+                        suppliersList();
+                        click = choice();
+                        if (click == 'A')
+                        {
 
+                        }
 
-
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Please try again!");
+                    break;
             }
+
+
+
         }
-
-
-        static void ItemsAvail()
+        static char choice()
         {
-            Console.WriteLine("\nCATEGORY:");
-            Console.WriteLine("\nFresh Produce (F):");
-            Console.WriteLine("Protein (P):");
-            Console.WriteLine("Canned Goods (C):");
-
-            Console.Write("CLICK: ");
-            string click = Console.ReadLine();
-
-            if (click == "F")
-            {
-
-                List<String> sampleFreshProd;
-                sampleFreshProd = new List<String>() { "Fruits", "Vegetables" };
-
-                foreach (var log in sampleFreshProd)
-                {
-                    Console.WriteLine(log);
-                }
-
-            }
-            else if (click == "P")
-            {
-
-                List<String> sampleProtein;
-                sampleProtein = new List<String>() { "Meat", "Fish", "Eggs" };
-
-                foreach (var log in sampleProtein)
-                {
-                    Console.WriteLine(log);
-                }
-
-            }
-            else if (click == "C")
-            {
-
-                List<String> sampleCanned;
-                sampleCanned = new List<String>() { "Sardines", "Pork Goods", "Beef Goods" };
-
-                foreach (var log in sampleCanned)
-                {
-                    Console.WriteLine(log);
-                }
-            }
+            Console.WriteLine("\n============================");
+            Console.Write("\nEnter: ");
+            char click = Console.ReadLine()[0];
+            return click;
         }
 
-        static void Purchase()
+        static void crudFeatures()
         {
-            ////Output = List of Items
-            ////C - Create a New Item
-            //R - Searching / Finding an Item
-            //U - Add an item
-            //D - DeleteDirectoryOption
+            Console.WriteLine("\nA — Add: ");
+            Console.WriteLine("\nB — View: ");
+            Console.WriteLine("\nC — Update: ");
+            Console.WriteLine("\nD – Delete: ");
         }
 
-        static void Suppliers()
+        static void suppliersList()
         {
-            //Output = Name of Suppliers
-            //
+            Console.WriteLine("\n============================");
+            Console.WriteLine("Products Category:");
+            Console.WriteLine("============================");
+            Console.WriteLine("A. CANS" + "\nB. HYGIENE PRODUCTS" + "\nC. NOODLES"
+            + "\nD. BISCUITS/CHICHIRYA" + "\nE. SOFTDRINKS");
         }
-
-
 
 
     }
