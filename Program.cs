@@ -78,7 +78,7 @@ namespace SupplyManagement_Procurement
             Console.WriteLine("\n============================");
             Console.WriteLine("Products Category:");
             Console.WriteLine("============================");
-            Console.WriteLine("A. CANS" + "\nB. HYGIENE PRODUCTS" + "\nC. NOODLES"
+            Console.WriteLine("A. CANS" + "\nB. HYGIENE PRODUCTS" + "\nC. "
             + "\nD. BISCUITS/CHICHIRYA" + "\nE. SOFTDRINKS");
         }
 
