@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\procurementBusinessL\procurementBusinessL.csproj" />
-    <ProjectReference Include="..\procurementModels\procurementModels.csproj" />
+    <ProjectReference Include="procurementBusinessL\procurementBusinessL.csproj" />
   </ItemGroup>
 
 </Project>
