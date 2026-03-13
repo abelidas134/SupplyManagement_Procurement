@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="SupplyManagement.csproj" />
+  <Project Path="procurementBusinessL/procurementBusinessL.csproj" />
+  <Project Path="procurementDataL/procurementDataL.csproj" />
+  <Project Path="procurementModels/procurementModels.csproj" />
 </Solution>

@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\procurementBusinessL\procurementBusinessL.csproj" />
+    <ProjectReference Include="..\procurementModels\procurementModels.csproj" />
+  </ItemGroup>
+
 </Project>
