@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Diagnostics;
-using System.Globalization;
-using System.Net;
-using System.Numerics;
-using System.Runtime.InteropServices;
-using System.Xml.Linq;
+using System.Collections.Generic;
 
 namespace SupplyManagement_Procurement
 {
@@ -13,19 +7,16 @@ namespace SupplyManagement_Procurement
     {
         static char click;
         static List<string>[] suppliers = suppliersList();
-        static string supplierName;
-        //, supplierPerson, supplierEmail,
-        //                    supplierNumber
+        static string supplierName = "Mickey";
+
         static void Main(string[] args)
         {
-            while (true) {
-
+            while (true)
+            {
                 Console.WriteLine("\nPROCUREMENT");
-                Console.WriteLine("=======================================================");
                 Console.WriteLine("Proceeding to Supply Management Section...");
-                Console.WriteLine("=======================================================");
 
-                Console.WriteLine("\nA — Inventory Status: ");//Dito parang for viewing lang sa user
+                Console.WriteLine("\nA — Inventory Status: ");
                 Console.WriteLine("\nB — Suppliers: ");
                 Console.WriteLine("\nC — Purchase: ");
                 Console.WriteLine("\nD – Exit: ");
@@ -37,25 +28,20 @@ namespace SupplyManagement_Procurement
                         //call ang class/project about inventory status.
                         break;
                     case 'B':
-                        Console.WriteLine("============================");
                         Console.WriteLine("\nSUPPLIERS:");
                         crudFeatures();
                         click = choiceLetter();
 
                         if (click == 'A')
                         {
-                            Console.WriteLine("============================");
                             Console.WriteLine("\nCreating/Adding a Supplier: ");
-                            Console.WriteLine("============================");
                             suppliersProducts();
                             click = choiceLetter();
 
-                            //Products Category na part na to
                             if (click == 'A')
                             {
                                 inputSuppliers();
                                 addSupplier();
-
                             }
                             else if (click == 'B')
                             {
@@ -81,9 +67,7 @@ namespace SupplyManagement_Procurement
                         }
                         else if (click == 'B')
                         {
-                            Console.WriteLine("============================");
                             Console.WriteLine("\nView List of Suppliers: ");
-                            Console.WriteLine("============================");
                             suppliersProducts();
                             click = choiceLetter();
 
@@ -111,17 +95,13 @@ namespace SupplyManagement_Procurement
                         }
                         else if (click == 'C')
                         {
-                            Console.WriteLine("============================");
                             Console.WriteLine("\nUpdate a Supplier: ");
-                            Console.WriteLine("============================");
                             //Hihirapan ako dito wait lang po hehe
 
                         }
                         else if (click == 'D')
                         {
-                            Console.WriteLine("============================");
                             Console.WriteLine("\nDelete a Supplier: ");
-                            Console.WriteLine("============================");
                             deleteSupplierOption();
                             choiceLetter();
 
@@ -131,7 +111,6 @@ namespace SupplyManagement_Procurement
                                     suppliersProducts();
                                     click = choiceLetter();
                                     deleteElem();
-
                                     break;
                                 case 'B':
                                     suppliersProducts();
@@ -154,7 +133,6 @@ namespace SupplyManagement_Procurement
                                     }
                                     else if (click == 'E')
                                     {
-
                                         suppliers[4].Clear();
                                     }
                                     break;
@@ -166,12 +144,6 @@ namespace SupplyManagement_Procurement
                         }
                         break;
                     case 'C':
-
-
-
-
-
-
                         break;
                     case 'D':
                         Environment.Exit(0);
@@ -184,10 +156,10 @@ namespace SupplyManagement_Procurement
             }
 
         }
+
         static char choiceLetter()
         {
-            Console.WriteLine("\n============================");
-            Console.Write("\nEnter: ");
+            Console.WriteLine("\nEnter: ");
             click = Console.ReadLine()[0];
             return click;
         }
@@ -202,19 +174,16 @@ namespace SupplyManagement_Procurement
 
         static void suppliersProducts()
         {
-            Console.WriteLine("\n============================");
-            Console.WriteLine("PRODUCTS CATEGORY:");
-            Console.WriteLine("============================");
+            Console.WriteLine("\nPRODUCTS CATEGORY:");
             Console.WriteLine("A. CANNED GOODS" + "\nB. HYGIENE PRODUCTS" + "\nC. NOODLES"
             + "\nD. BISCUITS/CHICHIRYA" + "\nE. SOFTDRINKS");
 
         }
-        
+
         static List<string>[] suppliersList()
         {
             List<string>[] suppliers = new List<string>[5];
 
-            // Canned Goods
             suppliers[0] = new List<string>
             {
                  "Century Pacific Food, Inc.",
@@ -223,8 +192,7 @@ namespace SupplyManagement_Procurement
                 "San Miguel Foods Inc.",
                 "Delimondo Food Specialties Inc."
             };
-            
-            // Hygiene Products
+
             suppliers[1] = new List<string>
             {
                 "Unilab, Inc.",
@@ -234,7 +202,6 @@ namespace SupplyManagement_Procurement
                 "Procter & Gamble Philippines"
             };
 
-            // Noodles
             suppliers[2] = new List<string>
             {
                 "Monde Nissin Corporation",
@@ -244,7 +211,6 @@ namespace SupplyManagement_Procurement
                 "Century Pacific Foods, Inc."
             };
 
-            // Biscuits / Chichirya
             suppliers[3] = new List<string>
             {
                 "Rebisco",
@@ -254,7 +220,6 @@ namespace SupplyManagement_Procurement
                 "Jack 'n Jill (URC Brand)"
             };
 
-            // Beverages
             suppliers[4] = new List<string>
             {
                 "Coca-Cola Beverages Philippines",
@@ -266,64 +231,40 @@ namespace SupplyManagement_Procurement
 
             return suppliers;
         }
-        
 
         static void inputSuppliers()
         {
-            Console.WriteLine("\n============================");
-            Console.Write("Enter Supplier's Name: ");
+            Console.Write("\nEnter Supplier's Name: ");
             supplierName = Console.ReadLine();
-            Console.WriteLine("============================");
-            
-
-            //Console.Write("Contact Person: ");
-            //supplierPerson = Console.ReadLine();
-
-            //Console.Write("Email: ");
-            //supplierEmail = Console.ReadLine();
-
-            //Console.Write("Phone Number: ");
-            //supplierNumber = Console.ReadLine();
-
         }
 
         static void addSupplier()
         {
-            if (click=='A')
+            if (click == 'A')
             {
                 suppliers[0].Add(supplierName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Added Successfully!");
-                Console.WriteLine("============================");
+                Console.WriteLine("\nAdded Successfully!");
             }
             else if (click == 'B')
             {
                 suppliers[1].Add(supplierName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Added Successfully!");
-                Console.WriteLine("============================");
-            } 
+                Console.WriteLine("\nAdded Successfully!");
+            }
             else if (click == 'C')
             {
                 suppliers[2].Add(supplierName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Added Successfully!");
-                Console.WriteLine("============================");
+                Console.WriteLine("\nAdded Successfully!");
             }
             else if (click == 'D')
             {
                 suppliers[3].Add(supplierName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Added Successfully!");
-                Console.WriteLine("============================");
-            } 
+                Console.WriteLine("\nAdded Successfully!");
+            }
             else if (click == 'E')
             {
                 suppliers[4].Add(supplierName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Added Successfully!");
-                Console.WriteLine("============================");
-            } 
+                Console.WriteLine("\nAdded Successfully!");
+            }
             else
             {
                 Console.WriteLine("Invalid Category!");
@@ -334,64 +275,44 @@ namespace SupplyManagement_Procurement
         {
             if (click == 'A')
             {
-                Console.WriteLine("============================");
                 Console.WriteLine("\nCanned Goods Suppliers:");
-                Console.WriteLine("============================");
-
                 foreach (var supplier in suppliers[0])
                 {
                     Console.WriteLine(supplier);
                 }
-                Console.WriteLine("============================");
 
             }
             else if (click == 'B')
             {
-                Console.WriteLine("============================");
                 Console.WriteLine("\nHygiene Products Suppliers:");
-                Console.WriteLine("============================");
-
                 foreach (var supplier in suppliers[1])
                 {
                     Console.WriteLine(supplier);
                 }
-                Console.WriteLine("============================");
             }
             else if (click == 'C')
             {
-                Console.WriteLine("============================");
                 Console.WriteLine("\nNoodles Suppliers:");
-                Console.WriteLine("============================");
-
                 foreach (var supplier in suppliers[2])
                 {
                     Console.WriteLine(supplier);
                 }
-                Console.WriteLine("============================");
             }
             else if (click == 'D')
             {
-                Console.WriteLine("============================");
                 Console.WriteLine("\nBiscuits Suppliers:");
-                Console.WriteLine("============================");
-
                 foreach (var supplier in suppliers[3])
                 {
                     Console.WriteLine(supplier);
                 }
-                Console.WriteLine("============================");
             }
             else if (click == 'E')
             {
-                Console.WriteLine("============================");
                 Console.WriteLine("\nBeverages Suppliers:");
-                Console.WriteLine("============================");
-
                 foreach (var supplier in suppliers[4])
                 {
                     Console.WriteLine(supplier);
                 }
-                Console.WriteLine("============================");
             }
             else
             {
@@ -402,58 +323,41 @@ namespace SupplyManagement_Procurement
 
         static void deleteSupplierOption()
         {
-            Console.WriteLine("\n============================");
-            Console.WriteLine("DELETE OPTION:");
-            Console.WriteLine("============================");
+            Console.WriteLine("\nDELETE OPTION:");
             Console.WriteLine("A. An element" + "\nB. All elements");
-            
         }
 
         static void deleteElem()
         {
             string fullName;
-            Console.WriteLine("\n============================");
-            Console.Write("Enter Supplier's Full Name: ");
+            Console.Write("\nEnter Supplier's Full Name: ");
             fullName = Console.ReadLine();
-            Console.WriteLine("============================");
 
-            if (click=='A')
+            if (click == 'A')
             {
                 suppliers[0].Remove(fullName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Deleted Successfully!");
-                Console.WriteLine("============================");
+                Console.WriteLine("\nDeleted Successfully!");
             }
-            else if (click=='B')
+            else if (click == 'B')
             {
                 suppliers[1].Remove(fullName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Deleted Successfully!");
-                Console.WriteLine("============================");
+                Console.WriteLine("\nDeleted Successfully!");
             }
             else if (click == 'C')
             {
                 suppliers[2].Remove(fullName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Deleted Successfully!");
-                Console.WriteLine("============================");
+                Console.WriteLine("\nDeleted Successfully!");
             }
             else if (click == 'D')
             {
                 suppliers[3].Remove(fullName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Deleted Successfully!");
-                Console.WriteLine("============================");
+                Console.WriteLine("\nDeleted Successfully!");
             }
             else if (click == 'E')
             {
                 suppliers[4].Remove(fullName);
-                Console.WriteLine("\n============================");
-                Console.WriteLine("Deleted Successfully!");
-                Console.WriteLine("============================");
+                Console.WriteLine("\nDeleted Successfully!");
             }
         }
-
-
     }
 }

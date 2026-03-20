@@ -1,28 +1,26 @@
-﻿using procurementDataL;
+﻿using System.Linq;
+using procurementDataL;
 using procurementModels;
 
 namespace procurementBusinessL
 {
     public class Business
     {
-        supplierDataL splDataBusiness = new supplierDataL();
+        SupplierDataL splDataBusiness = new SupplierDataL();
 
         public bool SupplierActivity(string supplierID)
         {
-            suppliers actSupplier = splDataBusiness.retrieveSuppliers().FirstOrDefault(s => s.SupplierID == supplierID);
+            Supplier actSupplier = splDataBusiness.RetrieveSuppliers().FirstOrDefault(s => s.supplierID == supplierID);
 
-            if (actSupplier==null)
-            {
+            if (actSupplier == null)
                 return false;
-            }
+
             return actSupplier.isActive;
         }
 
-        public bool CanAddSupplier(suppliers supplier)
+        public bool CanAddSupplier(Supplier supplier)
         {
             return supplier.productCount >= 5;
         }
-
     }
-    
 }

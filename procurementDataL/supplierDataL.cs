@@ -1,48 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using procurementModels;
 
 namespace procurementDataL
 {
-    public class supplierDataL
+    public class SupplierDataL
     {
-        public List<suppliers> suppliersDB = new List<suppliers>();
+        public List<Supplier> suppliersDB = new List<Supplier>();
 
-        public supplierDataL()
+        public SupplierDataL()
         {
-            suppliersDB.Add(new suppliers { supplierID = "SP001", supplierName="Datu Puti Company", isActive = true, productCount = 10});
-            suppliersDB.Add(new suppliers { supplierID = "SP002", supplierName="Payless Noodles, Inc", isActive = false, productCount = 5});
-            suppliersDB.Add(new suppliers { supplierID = "SP003", supplierName="Tawas ni Mang Ben Company", isActive = true, productCount = 2});
-            suppliersDB.Add(new suppliers { supplierID = "SP004", supplierName="Ajinomoto Company", isActive = false, productCount = 3});
+            suppliersDB.Add(new Supplier { supplierID = "SP001", supplierName = "Datu Puti Company", isActive = true, productCount = 10 });
+            suppliersDB.Add(new Supplier { supplierID = "SP002", supplierName = "Payless Noodles, Inc", isActive = false, productCount = 5 });
         }
 
-        public void addSuppliers(suppliers spl)
+        public void AddSupplier(Supplier s) => suppliersDB.Add(s);
+        public void UpdateSupplier(Supplier s)
         {
-            suppliersDB.Add(spl);
-        }
-
-        public void updateSupplier(suppliers spl)
-        {
-            var existing = suppliersDB.Find(s=>s.supplierID==spl.supplierID);
+            var existing = suppliersDB.Find(x => x.supplierID == s.supplierID);
             if (existing != null)
             {
-                existing.supplierName = spl.supplierName;
-                existing.isActive = spl.isActive;
-                existing.productCount = spl.productCount;
+                existing.supplierName = s.supplierName;
+                existing.isActive = s.isActive;
+                existing.productCount = s.productCount;
             }
         }
-
-        public void deleteSupplier(string supplierID)
-        {
-            suppliersDB.RemoveAll(s=>s.supplierID==supplierID);
-        }
-
-        public List<suppliers> retrieveSuppliers()
-        {
-            return suppliersDB;
-        }
-
-
+        public void DeleteSupplier(string id) => suppliersDB.RemoveAll(x => x.supplierID == id);
+        public List<Supplier> RetrieveSuppliers() => suppliersDB;
     }
 }
