@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="forms/forms.csproj" Id="6f98be7b-1070-4d56-8694-44cf8368764e" />
+  <Project Path="../Procurement_Forms/Procurement_Forms.csproj" />
   <Project Path="procurementBusinessL/procurementBusinessL.csproj" />
   <Project Path="procurementDataL/procurementDataL.csproj" />
   <Project Path="procurementModels/procurementModels.csproj" />
