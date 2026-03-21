@@ -13,7 +13,10 @@ namespace procurementDataL
             suppliersDB.Add(new Supplier { supplierID = "SP002", supplierName = "Payless Noodles, Inc", isActive = false, productCount = 5 });
         }
 
-        public void AddSupplier(Supplier s) => suppliersDB.Add(s);
+        public void AddSupplier(Supplier s)
+        {
+            suppliersDB.Add(s);
+        }
         public void UpdateSupplier(Supplier s)
         {
             var existing = suppliersDB.Find(x => x.supplierID == s.supplierID);
@@ -24,7 +27,12 @@ namespace procurementDataL
                 existing.productCount = s.productCount;
             }
         }
-        public void DeleteSupplier(string id) => suppliersDB.RemoveAll(x => x.supplierID == id);
-        public List<Supplier> RetrieveSuppliers() => suppliersDB;
+        public void DeleteSupplier(string id) {
+            suppliersDB.RemoveAll(x => x.supplierID == id);
+        }
+        public List<Supplier> RetrieveSuppliers()
+        {
+            return suppliersDB.ToList();
+        }
     }
 }

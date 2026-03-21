@@ -10,6 +10,7 @@
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	</PropertyGroup>
 	<ItemGroup>
+		<ProjectReference Include="forms\forms.csproj" />
 		<ProjectReference Include="procurementBusinessL\procurementBusinessL.csproj" />
 		<ProjectReference Include="procurementDataL\procurementDataL.csproj" />
 		<ProjectReference Include="procurementModels\procurementModels.csproj" />
