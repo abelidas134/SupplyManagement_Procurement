@@ -7,10 +7,12 @@ namespace forms
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void procurementPanel_Load(object sender, EventArgs e)
         {
             //Whole Frame
-            panel1.Visible = false;
+            panelMain.Visible = true;
+            panelMain.BringToFront();
+            panelSupplier.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -21,13 +23,14 @@ namespace forms
         private void button1_Click(object sender, EventArgs e)
         {
             //Inventory Status
-        }/**/
+        }
 
         private void suppliers_Click(object sender, EventArgs e)
         {
             //suppliers
-            panel1.Visible = true;
-            panel1.BringToFront();
+            panelSupplier.Visible = true;
+            panelMain.Visible = false;
+            panelSupplier.BringToFront();
 
         }
 
@@ -43,46 +46,48 @@ namespace forms
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            //panel1
-        }
+        
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             //Add
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void lblSupplier_Click(object sender, EventArgs e)
         {
             //SUPPLIERS
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnView_Click(object sender, EventArgs e)
         {
             //View
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             //Update
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             //Delete
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnBackSupplierPanel_Click(object sender, EventArgs e)
         {
             //back
-            panel1.Visible = false;
-            panel1.SendToBack();
+            
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
             //panel2
+            
+        }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
