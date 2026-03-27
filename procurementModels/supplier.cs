@@ -6,5 +6,6 @@
         public string supplierName { get; set; }
         public bool isActive { get; set; }
         public int productCount { get; set; }
+        public char category { get; set; }
     }
 }
