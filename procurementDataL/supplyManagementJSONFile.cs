@@ -8,7 +8,7 @@ using System.Text.Json;
 
 namespace procurementDataL
 {
-    public class supplyManagementJSONFile
+    public class supplyManagementJSONFile : ISupplierData
     {
 
         public List<Supplier> suppliers = new List<Supplier>();
@@ -57,33 +57,10 @@ namespace procurementDataL
             }
         }
 
-
         public void AddSupplier(Supplier s)
         {
             suppliers.Add(s);
             SaveData();
-        }
-
-        public List<Supplier> GetByCategory(char category)
-        {
-            return suppliers.Where(s => s.category == category).ToList();
-        }
-
-        public void DeleteSupplier(string id)
-        {
-            suppliers.RemoveAll(x => x.supplierID == id);
-            SaveData();
-        }
-
-        public void DeleteAll(char category)
-        {
-            suppliers.RemoveAll(s => s.category == category);
-            SaveData();
-        }
-
-        public List<Supplier> RetrieveSuppliers()
-        {
-            return suppliers.ToList();
         }
 
         public void UpdateSupplier(Supplier s)
@@ -97,6 +74,28 @@ namespace procurementDataL
                 existing.category = s.category;
             }
             SaveData();
+        }
+
+        public void DeleteSupplier(string id)
+        {
+            suppliers.RemoveAll(x => x.supplierID == id);
+            SaveData();
+        }
+
+        public void DeleteAll(char category)
+        {
+            suppliers.RemoveAll(s => s.category == category);
+            SaveData(); ;
+        }
+
+        public List<Supplier> RetrieveSuppliers()
+        {
+            return suppliers.ToList();
+        }
+
+        public List<Supplier> GetByCategory(char category)
+        {
+            return suppliers.Where(s => s.category == category).ToList();
         }
 
     }
