@@ -27,36 +27,35 @@ namespace procurementDataL
 
             if (existing.Count ==0)
             {
+                AddSupplier(new Supplier { supplierID = "SP1", supplierName = "Century Pacific Food, Inc.", isActive = true, productCount = 6, category = 'A' });
+                AddSupplier(new Supplier { supplierID = "SP2", supplierName = "Mega Prime Foods Inc.", isActive = true, productCount = 6, category = 'A' });
+                AddSupplier(new Supplier { supplierID = "SP3", supplierName = "CDO Foodsphere, Inc.", isActive = true, productCount = 6, category = 'A' });
+                AddSupplier(new Supplier { supplierID = "SP4", supplierName = "San Miguel Foods Inc.", isActive = true, productCount = 6, category = 'A' });
+                AddSupplier(new Supplier { supplierID = "SP5", supplierName = "Delimondo Food Specialties Inc.", isActive = true, productCount = 6, category = 'A' });
 
-                AddSupplier(new Supplier { supplierID = "SP1", supplierName = "Century Pacific Food, Inc.", isActive = true, productCount = 10, category = 'A' });
-                AddSupplier(new Supplier { supplierID = "SP2", supplierName = "Mega Prime Foods Inc.", isActive = true, productCount = 10, category = 'A' });
-                AddSupplier(new Supplier { supplierID = "SP3", supplierName = "CDO Foodsphere, Inc.", isActive = true, productCount = 10, category = 'A' });
-                AddSupplier(new Supplier { supplierID = "SP4", supplierName = "San Miguel Foods Inc.", isActive = true, productCount = 10, category = 'A' });
-                AddSupplier(new Supplier { supplierID = "SP5", supplierName = "Delimondo Food Specialties Inc.", isActive = true, productCount = 10, category = 'A' });
+                AddSupplier(new Supplier { supplierID = "SP6", supplierName = "Unilab, Inc.", isActive = true, productCount = 6, category = 'B' });
+                AddSupplier(new Supplier { supplierID = "SP7", supplierName = "Splash Corporation", isActive = true, productCount = 6, category = 'B' });
+                AddSupplier(new Supplier { supplierID = "SP8", supplierName = "Peerless Products Manufacturing Corporation", isActive = true, productCount = 6, category = 'B' });
+                AddSupplier(new Supplier { supplierID = "SP9", supplierName = "Gandang Kalikasan Inc. (Human Nature)", isActive = true, productCount = 6, category = 'B' });
+                AddSupplier(new Supplier { supplierID = "SP10", supplierName = "Procter & Gamble Philippines", isActive = true, productCount = 6, category = 'B' });
 
-                AddSupplier(new Supplier { supplierID = "SP6", supplierName = "Unilab, Inc.", isActive = true, productCount = 10, category = 'B' });
-                AddSupplier(new Supplier { supplierID = "SP7", supplierName = "Splash Corporation", isActive = true, productCount = 10, category = 'B' });
-                AddSupplier(new Supplier { supplierID = "SP8", supplierName = "Peerless Products Manufacturing Corporation", isActive = true, productCount = 10, category = 'B' });
-                AddSupplier(new Supplier { supplierID = "SP9", supplierName = "Gandang Kalikasan Inc. (Human Nature)", isActive = true, productCount = 10, category = 'B' });
-                AddSupplier(new Supplier { supplierID = "SP10", supplierName = "Procter & Gamble Philippines", isActive = true, productCount = 10, category = 'B' });
+                AddSupplier(new Supplier { supplierID = "SP11", supplierName = "Monde Nissin Corporation", isActive = true, productCount = 6, category = 'C' });
+                AddSupplier(new Supplier { supplierID = "SP12", supplierName = "Universal Robina Corporation", isActive = true, productCount = 6, category = 'C' });
+                AddSupplier(new Supplier { supplierID = "SP13", supplierName = "Nissin Foods Philippines", isActive = true, productCount = 6, category = 'C' });
+                AddSupplier(new Supplier { supplierID = "SP14", supplierName = "San Miguel Foods Inc.", isActive = true, productCount = 6, category = 'C' });
+                AddSupplier(new Supplier { supplierID = "SP15", supplierName = "Century Pacific Foods, Inc.", isActive = true, productCount = 6, category = 'C' });
 
-                AddSupplier(new Supplier { supplierID = "SP11", supplierName = "Monde Nissin Corporation", isActive = true, productCount = 10, category = 'C' });
-                AddSupplier(new Supplier { supplierID = "SP12", supplierName = "Universal Robina Corporation", isActive = true, productCount = 10, category = 'C' });
-                AddSupplier(new Supplier { supplierID = "SP13", supplierName = "Nissin Foods Philippines", isActive = true, productCount = 10, category = 'C' });
-                AddSupplier(new Supplier { supplierID = "SP14", supplierName = "San Miguel Foods Inc.", isActive = true, productCount = 10, category = 'C' });
-                AddSupplier(new Supplier { supplierID = "SP15", supplierName = "Century Pacific Foods, Inc.", isActive = true, productCount = 10, category = 'C' });
+                AddSupplier(new Supplier { supplierID = "SP16", supplierName = "Rebisco", isActive = true, productCount = 6, category = 'D' });
+                AddSupplier(new Supplier { supplierID = "SP17", supplierName = "Universal Robina Corporation", isActive = true, productCount = 6, category = 'D' });
+                AddSupplier(new Supplier { supplierID = "SP18", supplierName = "Liwayway Marketing Corporation (Oishi)", isActive = true, productCount = 6, category = 'D' });
+                AddSupplier(new Supplier { supplierID = "SP19", supplierName = "JBC Food Corporation", isActive = true, productCount = 6, category = 'D' });
+                AddSupplier(new Supplier { supplierID = "SP20", supplierName = "Jack 'n Jill (URC Brand)", isActive = true, productCount = 6, category = 'D' });
 
-                AddSupplier(new Supplier { supplierID = "SP16", supplierName = "Rebisco", isActive = true, productCount = 10, category = 'D' });
-                AddSupplier(new Supplier { supplierID = "SP17", supplierName = "Universal Robina Corporation", isActive = true, productCount = 10, category = 'D' });
-                AddSupplier(new Supplier { supplierID = "SP18", supplierName = "Liwayway Marketing Corporation (Oishi)", isActive = true, productCount = 10, category = 'D' });
-                AddSupplier(new Supplier { supplierID = "SP19", supplierName = "JBC Food Corporation", isActive = true, productCount = 10, category = 'D' });
-                AddSupplier(new Supplier { supplierID = "SP20", supplierName = "Jack 'n Jill (URC Brand)", isActive = true, productCount = 10, category = 'D' });
-
-                AddSupplier(new Supplier { supplierID = "SP21", supplierName = "Coca-Cola Beverages Philippines", isActive = true, productCount = 10, category = 'E' });
-                AddSupplier(new Supplier { supplierID = "SP22", supplierName = "Pepsi-Cola Products Philippines, Inc.", isActive = true, productCount = 10, category = 'E' });
-                AddSupplier(new Supplier { supplierID = "SP23", supplierName = "ABC Refreshments Corporation", isActive = true, productCount = 10, category = 'E' });
-                AddSupplier(new Supplier { supplierID = "SP24", supplierName = "Asia Bravery, Inc.", isActive = true, productCount = 10, category = 'E' });
-                AddSupplier(new Supplier { supplierID = "SP25", supplierName = "San Miguel Corporation", isActive = true, productCount = 10, category = 'E' });
+                AddSupplier(new Supplier { supplierID = "SP21", supplierName = "Coca-Cola Beverages Philippines", isActive = true, productCount = 6, category = 'E' });
+                AddSupplier(new Supplier { supplierID = "SP22", supplierName = "Pepsi-Cola Products Philippines, Inc.", isActive = true, productCount = 6, category = 'E' });
+                AddSupplier(new Supplier { supplierID = "SP23", supplierName = "ABC Refreshments Corporation", isActive = true, productCount = 6, category = 'E' });
+                AddSupplier(new Supplier { supplierID = "SP24", supplierName = "Asia Bravery, Inc.", isActive = true, productCount = 6, category = 'E' });
+                AddSupplier(new Supplier { supplierID = "SP25", supplierName = "San Miguel Corporation", isActive = true, productCount = 6, category = 'E' });
             }
         }
 

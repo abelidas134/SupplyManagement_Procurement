@@ -10,12 +10,14 @@ namespace SupplyManagement_Procurement
 {
     internal class Program
     {
-        static char click, category;
+        static char click, category, productCategory;
         static int productCount;
-        static string id, choice, supplierName, isActiveChoice;
+        static string id, choice, supplierName, isActiveChoice, productName;
         static bool activity;
+        static double price;
         static supplyManagementJSONFile data = new supplyManagementJSONFile();
         static Business business = new Business();
+        static SupplierDataL dataL = new SupplierDataL();
 
         static void Main(string[] args)
         {
@@ -80,7 +82,29 @@ namespace SupplyManagement_Procurement
                         }
                         break;
                     case 'C':
-                        //Purchase
+                        Console.WriteLine("\nPURCHASE:");
+                        crudFeatures();
+                        click = choiceLetter();
+
+                        if (click == 'A')
+                        {
+                            Console.WriteLine("\nCreating/Adding Products: ");
+                        }
+                        else if (click == 'B')
+                        {
+                            Console.WriteLine("\nView List of Products: ");
+                        }
+                        else if (click == 'C')
+                        {
+                            Console.WriteLine("\nUpdate Products: ");
+
+                        }
+                        else if (click == 'D')
+                        {
+                            Console.WriteLine("\nDelete a Product: ");
+                            
+                        }
+
                         break;
                     case 'D':
                         Environment.Exit(0);
@@ -119,6 +143,7 @@ namespace SupplyManagement_Procurement
             Console.WriteLine("\nD – Delete: ");
         }
 
+
         static void suppliersProducts()
         {
             Console.WriteLine("\nPRODUCTS CATEGORY:");
@@ -135,9 +160,26 @@ namespace SupplyManagement_Procurement
             supplierName = Console.ReadLine();
         }
 
+        static void inputProducts()
+        {
+            Console.Write("\nProduct Name: ");
+            productName = Console.ReadLine();
+        }
+        static void productPrice()
+        {
+            Console.Write("\nProduct Price: ");
+            price = Double.Parse(Console.ReadLine());   
+        }
+
+
         static void generateSuppliersID(supplyManagementJSONFile data)
         {
             id = "SP" + (data.RetrieveSuppliers().Count + 1);
+        }
+
+        static void generateProductsID(SupplierDataL data)
+        {
+            id = "PR0" + (data.RetrieveProducts().Count + 1);
         }
 
         static void isActive()
@@ -176,6 +218,16 @@ namespace SupplyManagement_Procurement
             suppliersProducts();
             category = choiceLetter();
             
+        }
+
+        static void retrieveAllSuppliers()
+        {
+            var suppliersList = dataL.RetrieveSuppliers();
+            foreach (var sl in suppliersList)
+            {
+                Console.WriteLine($"ID: {sl.supplierID} || Name: {sl.supplierName} || " +
+                    $"Category: {sl.category} || Active: {sl.isActive} || Product Count: {sl.productCount}");
+            }
         }
 
         static void addSupplier(supplyManagementJSONFile data)
@@ -316,6 +368,28 @@ namespace SupplyManagement_Procurement
             var list = data.GetByCategory(category);
             data.DeleteAll(category);
             Console.WriteLine("Deleted All Suppliers!");
+        }
+
+        static void addProducts(SupplierDataL data)
+        {
+            inputProducts();
+            generateProductsID(data);
+            productPrice();
+            suppliersProducts();
+            choiceLetter();
+
+
+            Product addProducts = new Product
+            {
+                productID = id,
+                productName = productName,
+                productCategory = productCategory,
+                price = price
+            };
+
+            data.AddProducts(addProducts);
+
+            Console.WriteLine("Product Added Successfully!");
         }
     }
 }
