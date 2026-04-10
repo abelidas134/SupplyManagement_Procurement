@@ -89,6 +89,7 @@ namespace SupplyManagement_Procurement
                         if (click == 'A')
                         {
                             Console.WriteLine("\nCreating/Adding Products: ");
+                            addProduct(dataL); 
                         }
                         else if (click == 'B')
                         {
@@ -370,16 +371,16 @@ namespace SupplyManagement_Procurement
             Console.WriteLine("Deleted All Suppliers!");
         }
 
-        static void addProducts(SupplierDataL data)
+        static void addProduct(SupplierDataL dataL)
         {
             inputProducts();
-            generateProductsID(data);
+            generateProductsID(dataL);
             productPrice();
             suppliersProducts();
-            choiceLetter();
+            productCategory = choiceLetter();
 
 
-            Product addProducts = new Product
+            Product newProducts = new Product
             {
                 productID = id,
                 productName = productName,
@@ -387,9 +388,14 @@ namespace SupplyManagement_Procurement
                 price = price
             };
 
-            data.AddProducts(addProducts);
+            dataL.AddProducts(newProducts,id);
 
             Console.WriteLine("Product Added Successfully!");
+        }
+
+        static void viewProduct (SupplierDataL dataL)
+        { 
+
         }
     }
 }
