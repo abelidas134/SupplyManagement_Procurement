@@ -41,6 +41,7 @@ namespace procurementDataL
             suppliersDB.Add(new Supplier { supplierID = "SP24", supplierName = "Asia Bravery, Inc.", isActive = true, productCount = 6, category = 'E' });
             suppliersDB.Add(new Supplier { supplierID = "SP25", supplierName = "San Miguel Corporation", isActive = true, productCount = 6, category = 'E' });
 
+            SuppliersProduct();
         }
 
         public void AddSupplier(Supplier s)
@@ -379,12 +380,12 @@ namespace procurementDataL
             }
         }
 
-        public void DeleteProduct(string supplierID, string productIP)
+        public void DeleteProduct(string supplierID, string productID)
         {
             var existingSupplier = suppliersDB.Find (s=>s.supplierID== supplierID);
             if (existingSupplier != null)
             {
-                existingSupplier.products.RemoveAll(p => p.productID == productIP);
+                existingSupplier.products.RemoveAll(p => p.productID == productID);
             }
         }
 
@@ -400,6 +401,11 @@ namespace procurementDataL
         public List<Product> RetrieveProducts()
         {
             return suppliersDB.SelectMany(p=>p.products).ToList();
+        }
+
+        public List<Product> GetByCategoryProd(char category)
+        {
+            return suppliersDB.Where(s => s.category == category).SelectMany(p=>p.products).ToList();
         }
 
     }
