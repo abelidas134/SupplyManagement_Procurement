@@ -365,12 +365,12 @@ namespace procurementDataL
             }
         }
 
-        public void UpdateProducts(Product p, string id)
+        public void UpdateProducts(Product p, string supplierID, string productID)
         {
-            var existingSupplier = suppliersDB.Find(x => x.supplierID == id);
+            var existingSupplier = suppliersDB.Find(x => x.supplierID == supplierID);
             if (existingSupplier != null)
             {
-                var existingProduct = existingSupplier.products.Find(p => p.productID == id);
+                var existingProduct = existingSupplier.products.Find(p => p.productID == productID);
                 if (existingProduct != null)
                 {
                     existingProduct.productName = p.productName;
@@ -400,7 +400,7 @@ namespace procurementDataL
 
         public List<Product> RetrieveProducts()
         {
-            return suppliersDB.SelectMany(p=>p.products).ToList();
+            return suppliersDB.SelectMany(p=>p.products).OrderBy(p => p.productID).ToList();
         }
 
         public List<Product> GetByCategoryProd(char category)

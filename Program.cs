@@ -108,7 +108,7 @@ namespace SupplyManagement_Procurement
                         else if (click == 'B')
                         {
                             Console.WriteLine("\nView List of Products: ");
-                            Console.WriteLine("\nA. By Category" + "\nB. All Suppliers");
+                            Console.WriteLine("\nA. By Category" + "\nB. All Products");
                             choiceLetter();
 
                             switch (click)
@@ -498,7 +498,7 @@ namespace SupplyManagement_Procurement
                             return;
                     }
 
-                    dataL.UpdateProducts(product, supplierID);
+                    dataL.UpdateProducts(product, supplierID, productID);
                     Console.WriteLine("Updated Successfully!");
                 }
                 else
